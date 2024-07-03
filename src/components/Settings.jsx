@@ -97,7 +97,7 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                             <Button variant="outline" onClick={() => config.export()}>Export settings</Button>
                             <Button variant="outline" onClick={() => config.import()}>Import settings</Button>
                         </div>
-                        <p className='text-xs mt-1.5 text-neutral-500'>Settings can be transferred between devices</p>
+                        <p className='text-xs mt-1.5 text-neutral-500'>Settings can be transferred between devices using this file</p>
                     </div>
                     <h1 className='text-lg -ml-2 font-medium'>About</h1>
                     <div className='flex flex-col gap-2'>
