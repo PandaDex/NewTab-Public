@@ -68,7 +68,7 @@ function SpotifyPlayer() {
                 url: data.item?.external_urls?.spotify,
                 playing: data?.is_playing | false
             })
-        }, 1300)
+        }, 1100)
 
         setTrackData({
             name: data.item?.name,
