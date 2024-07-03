@@ -1,4 +1,4 @@
-import { AudioLinesIcon, ClockIcon, CloudyIcon, Settings2Icon, SettingsIcon, Loader2, SunIcon, MoonIcon, ComputerIcon, MonitorIcon } from 'lucide-react'
+import { AudioLinesIcon, ClockIcon, CloudyIcon, Settings2Icon, SettingsIcon, Loader2, SunIcon, MoonIcon, Users, MonitorIcon, ShieldCheck } from 'lucide-react'
 import React, { useState, useEffect } from 'react'
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,7 @@ import config from '@/utils/UserConfig';
 import { Switch } from '@/components/ui/switch';
 import { Input } from '@/components/ui/input';
 import { useTheme } from '@/components/theme-provider';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 function Settings() {
     const [settingsModalOpen, setSettingsModalOpen] = useState(false);
@@ -68,9 +69,8 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                             Display favorite sites
                         </label>
                     </div>
-                    { }
+                    <h1 className='text-lg -ml-2 font-medium'>Theme</h1>
                     <div>
-                        <h1 className='text-lg -ml-2 font-medium mb-2'>Theme</h1>
                         <ToggleGroup type="single" variant="outline" defaultValue={useTheme().theme} onValueChange={(value) => setTheme(value)} className="w-fit">
                             <ToggleGroupItem value="light" className="border-neutral-100">
                                 <div className='flex gap-1 items-center'>
@@ -90,6 +90,36 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                                 </div>
                             </ToggleGroupItem>
                         </ToggleGroup>
+                    </div>
+                    <h1 className='text-lg -ml-2 font-medium'>Backup</h1>
+                    <div>
+                        <div className='w-fit flex gap-4'>
+                            <Button variant="outline" onClick={() => config.export()}>Export settings</Button>
+                            <Button variant="outline" onClick={() => config.import()}>Import settings</Button>
+                        </div>
+                        <p className='text-xs mt-1.5 text-neutral-500'>Settings can be transferred between devices</p>
+                    </div>
+                    <h1 className='text-lg -ml-2 font-medium'>About</h1>
+                    <div className='flex flex-col gap-2'>
+                        <Alert>
+                            <ShieldCheck className="h-5" />
+                            <AlertTitle>Privacy</AlertTitle>
+                            <AlertDescription className="text-xs">
+                                None of your data is sent to server. <br />
+                                Everything is stored locally in your browser.
+                            </AlertDescription>
+                        </Alert>
+                        <Alert>
+                            <Users className="h-5" />
+                            <AlertTitle>Open Source</AlertTitle>
+                            <AlertDescription className="text-xs">
+                                This project is open source you can view source code on <a href="https://github.com/PandaDex/NewTab-Public" className="text-blue-500">GitHub</a> or contribute and help with project.
+                            </AlertDescription>
+                        </Alert>
+                        <div className='w-full flex justify-center gap-2'>
+                            <Button variant="outline" onClick={() => location.replace("https://github.com/PandaDex/NewTab-Public")}>GitHub Repository</Button>
+                            <Button variant="outline" onClick={() => location.replace("https://github.com/PandaDex/NewTab-Public/issues")}>Feature Request</Button>
+                        </div>
                     </div>
                 </div>
             </div >

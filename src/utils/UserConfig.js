@@ -86,4 +86,35 @@ export default {
 			},
 		},
 	},
+	export: () => {
+		const raw = Object.fromEntries(
+			Object.entries(localStorage).map(([key, value]) => [key, value]),
+		);
+
+		const file = new Blob([JSON.stringify(raw)], { type: "application/json" });
+		const element = document.createElement("a");
+		element.href = URL.createObjectURL(file);
+		element.download = "settings.json";
+		element.style.display = "none";
+		document.body.appendChild(element);
+		element.click();
+		document.body.removeChild(element);
+	},
+	import: () => {
+		const file = document.createElement("input");
+		file.type = "file";
+		file.accept = "application/json";
+		file.onchange = (e) => {
+			const file = e.target.files[0];
+			const reader = new FileReader();
+			reader.readAsText(file);
+			reader.onload = () => {
+				const json = JSON.parse(reader.result);
+				Object.entries(json).forEach(([key, value]) => {
+					localStorage.setItem(key, value);
+				});
+			};
+		};
+		file.click();
+	},
 };

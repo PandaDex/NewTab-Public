@@ -146,14 +146,14 @@ function Clock() {
                 <h1 className="font-medium text-7xl select-none">{time}</h1>
                 {config.get.weather().enabled === "true" ? (
                     <span className='flex gap-1.5 items-center select-none'>
-                        <span className='flex gap-0.5'>
-                            <WetherIcon index={weatherData?.WeatherIcon} size={20} />
+                        <span className='flex gap-0.5 items-center'>
+                            <WetherIcon index={weatherData?.WeatherIcon} size={19} />
                             <p>{weatherData?.IconPhrase}</p>
                         </span>
                         <p>{weatherData?.Temperature.Value.toFixed(0)}°{weatherData?.Temperature.Unit}</p>
                         <span className='flex gap-0.5 items-center'>
                             <MapPin size={16} />
-                            <p>{weatherData?.Link.split("/")[5].charAt(0).toUpperCase() + weatherData?.Link.split("/")[5].slice(1)}</p>
+                            <p>{(weatherData?.Link.split("/")[5].charAt(0).toUpperCase() + weatherData?.Link.split("/")[5].slice(1)).toString()}</p>
                         </span>
                     </span>
                 ) : null}

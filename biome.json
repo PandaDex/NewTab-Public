@@ -11,7 +11,8 @@
 				"useKeyWithClickEvents": "off"
 			},
 			"style": {
-				"useTemplate": "off"
+				"useTemplate": "off",
+				"useConst": "info"
 			},
 			"complexity": {
 				"noForEach": "off"
