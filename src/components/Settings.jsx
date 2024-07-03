@@ -93,7 +93,7 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                     </div>
                     <h1 className='text-lg -ml-2 font-medium'>Backup</h1>
                     <div>
-                        <div className='w-fit flex gap-4'>
+                        <div className='w-fit flex gap-1'>
                             <Button variant="outline" onClick={() => config.export()}>Export settings</Button>
                             <Button variant="outline" onClick={() => config.import()}>Import settings</Button>
                         </div>
@@ -116,7 +116,7 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                                 This project is open source you can view source code on <a href="https://github.com/PandaDex/NewTab-Public" className="text-blue-500">GitHub</a> or contribute and help with project.
                             </AlertDescription>
                         </Alert>
-                        <div className='w-full flex justify-center gap-2'>
+                        <div className='w-full flex gap-1'>
                             <Button variant="outline" onClick={() => location.replace("https://github.com/PandaDex/NewTab-Public")}>GitHub Repository</Button>
                             <Button variant="outline" onClick={() => location.replace("https://github.com/PandaDex/NewTab-Public/issues")}>Feature Request</Button>
                         </div>
