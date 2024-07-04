@@ -27,9 +27,9 @@ function Settings() {
 
 function SettingsModal({ setModalState = () => { }, modalState = true }) {
     const [currentTab, setCurrentTab] = useState('General');
-    const ModalOption = ({ title, children, onClick, iconCss = '' }) => {
+    const ModalOption = ({ title, children, onClick, iconCss = '', currentActive = '' }) => {
         return (
-            <div className='flex items-center gap-1.5 py-1 px-1.5 bg-white bg-opacity-0 rounded-md cursor-pointer hover:bg-opacity-10 ease-in-out duration-75 select-none'
+            <div className={`flex items-center gap-1.5 max-sm:bg-opacity-[2%] py-1 px-1.5 bg-white bg-opacity-0 rounded-md cursor-pointer hover:bg-opacity-5 ease-in-out duration-75 select-none ${currentActive === title ? '!bg-opacity-10' : ''}`}
                 onClick={onClick}
                 role='button'>
                 <div className={`bg-neutral-700 p-0.5 rounded-md ${iconCss}`}>
@@ -282,31 +282,37 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
 
     return (
         <div className='w-full h-full absolute z-10 bg-black backdrop-blur-sm bg-opacity-40 flex justify-center items-center'>
-            <div className='p-2 bg-neutral-200 text-black dark:text-white dark:bg-neutral-900 rounded-md flex h-[600px]'>
-                <aside className='h-full w-[200px] py-2 flex flex-col gap-1'>
+            <div className='p-2 bg-neutral-200 text-black dark:text-white dark:bg-neutral-900 rounded-md flex h-[600px] max-sm:h-[710px] max-sm:flex-col max-[375px]:scale-75'>
+                <aside className='h-full max-sm:h-fit max-sm:w-full w-[200px]'>
                     <h1 className='text-xl font-semibold mb-2'>Settings</h1>
-                    <ModalOption title='General' iconCss=' bg-gradient-to-tr from-stone-800 via-stone-700 to-stone-500 text-white' onClick={() => setCurrentTab('General')}>
-                        <Settings2Icon size={28} />
-                    </ModalOption>
-                    <div className='w-full h-[1px] my-1 bg-neutral-300 dark:bg-neutral-700' />
-                    <ModalOption title='Clock' iconCss='bg-gradient-to-tr from-stone-800 via-stone-700 to-stone-500 text-white' onClick={() => setCurrentTab('Clock')}>
-                        <ClockIcon size={28} />
-                    </ModalOption>
-                    <ModalOption title='Spotify' iconCss='bg-gradient-to-tr from-green-600 via-green-500 to-green-200 text-black' onClick={() => setCurrentTab('Spotify')}>
-                        <AudioLinesIcon size={28} />
-                    </ModalOption>
-                    <ModalOption title='Weather' iconCss='bg-gradient-to-tr from-sky-600 via-sky-500 to-sky-200 text-white' onClick={() => setCurrentTab('Weather')}>
-                        <CloudyIcon size={28} />
-                    </ModalOption>
-                    <div className='h-full w-full flex items-center justify-end flex-col'>
-                        <Button className="w-[90%] mb-2" variant="destructive" onClick={() => setModalState(!modalState)}>Exit</Button>
-                        <p className='text-[10px] text-neutral-600 dark:text-neutral-400'>*For new settings to take effect page need to be refreshed</p>
+                    <div className='py-2 max-sm:-mt-2 max-sm:pl-4 sm:h-full flex flex-col gap-1 max-sm:flex-row max-sm:items-center max-sm:gap-3'>
+                        <ModalOption title='General' iconCss=' bg-gradient-to-tr from-stone-800 via-stone-700 to-stone-500 text-white max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('General')}>
+                            <Settings2Icon size={28} />
+                        </ModalOption>
+                        <div className='w-full h-[1px] my-1 bg-neutral-300 dark:bg-neutral-700 max-sm:hidden' />
+                        <ModalOption title='Clock' iconCss='bg-gradient-to-tr from-stone-800 via-stone-700 to-stone-500 text-white max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('Clock')}>
+                            <ClockIcon size={28} />
+                        </ModalOption>
+                        <ModalOption title='Spotify' iconCss='bg-gradient-to-tr from-green-600 via-green-500 to-green-200 text-black max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('Spotify')}>
+                            <AudioLinesIcon size={28} />
+                        </ModalOption>
+                        <ModalOption title='Weather' iconCss='bg-gradient-to-tr from-sky-600 via-sky-500 to-sky-200 text-white max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('Weather')}>
+                            <CloudyIcon size={28} />
+                        </ModalOption>
+                        <div className='h-full w-full flex mb-6 items-center justify-end flex-col max-sm:hidden'>
+                            <Button className="w-[90%] mb-2" variant="destructive" onClick={() => setModalState(!modalState)}>Close</Button>
+                            <p className='text-[10px] text-neutral-600 dark:text-neutral-400'>*For new settings to take effect page need to be refreshed</p>
+                        </div>
                     </div>
                 </aside>
-                <div className='w-[1px] bg-neutral-300 dark:bg-neutral-700 mx-1'>
+                <div className='w-[1px] bg-neutral-300 dark:bg-neutral-700 mx-1 max-sm:hidden'>
                 </div>
-                <div className='h-full w-[400px]'>
+                <div className='h-full w-[400px] max-sm:-mt-4'>
                     <SettingsRouter tab={currentTab} />
+                </div>
+                <div className='w-full h-fit flex flex-col items-center justify-end flex-shrink-0 sm:hidden'>
+                    <Button className="w-[60%]" variant="destructive" onClick={() => setModalState(!modalState)}>Close</Button>
+                    <p className='text-[10px] text-neutral-600 dark:text-neutral-400'>*For new settings to take effect page need to be refreshed</p>
                 </div>
             </div>
         </div>
