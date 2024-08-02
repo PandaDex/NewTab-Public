@@ -312,7 +312,7 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                 </div>
                 <div className='w-full h-fit flex flex-col items-center justify-end flex-shrink-0 sm:hidden'>
                     <Button className="w-[60%]" variant="destructive" onClick={() => setModalState(!modalState)}>Close</Button>
-                    <p className='text-[10px] text-neutral-600 dark:text-neutral-400'>*For new settings to take effect page need to be refreshed</p>
+                    <p className='text-[10px] text-neutral-600 dark:text-neutral-400'>*For new changes to take effect page need to be refreshed</p>
                 </div>
             </div>
         </div>
