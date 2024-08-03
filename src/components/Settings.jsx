@@ -281,8 +281,8 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
 
 
     return (
-        <div className='w-full h-full absolute z-10 bg-black backdrop-blur-sm bg-opacity-40 flex justify-center items-center'>
-            <div className='p-2 bg-neutral-200 text-black dark:text-white dark:bg-neutral-900 rounded-md flex h-[600px] max-sm:h-[710px] max-sm:flex-col max-[375px]:scale-75'>
+        <div className='w-screen h-screen absolute z-10 bg-black backdrop-blur-sm bg-opacity-40 flex justify-center items-center'>
+            <div className='p-2 bg-neutral-200 text-black dark:text-white dark:bg-neutral-900 rounded-md flex h-[600px] max-sm:h-[710px] max-sm:flex-col max-[412px]:scale-75'>
                 <aside className='h-full max-sm:h-fit max-sm:w-full w-[200px]'>
                     <h1 className='text-xl font-semibold mb-2'>Settings</h1>
                     <div className='py-2 max-sm:-mt-2 max-sm:pl-4 sm:h-full flex flex-col gap-1 max-sm:flex-row max-sm:items-center max-sm:gap-3'>
@@ -301,7 +301,7 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                         </ModalOption>
                         <div className='h-full w-full flex mb-6 items-center justify-end flex-col max-sm:hidden'>
                             <Button className="w-[90%] mb-2" variant="destructive" onClick={() => setModalState(!modalState)}>Close</Button>
-                            <p className='text-[10px] text-neutral-600 dark:text-neutral-400'>*For new settings to take effect page need to be refreshed</p>
+                            <p className='text-[10px] text-neutral-600 dark:text-neutral-400'>*For new changes to take effect page need to be refreshed</p>
                         </div>
                     </div>
                 </aside>
