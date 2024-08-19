@@ -45,7 +45,8 @@ export function SearchBar() {
   const getSuggestions = (query) => {
     if (!query) return setSuggestions([]);
     if (query === " ") return setSuggestions([]);
-    fetch(`https://new-tab-api.vercel.app/suggest?query=${query}&provider=duckduckgo`)
+    if (config.get.searchSuggestions().provider === "brave" && config.get.searchSuggestions().apiKey === "") return setSuggestions([]);
+    fetch(`https://new-tab-api.vercel.app/suggest?query=${query}&provider=${config.get.searchSuggestions().provider}${config.get.searchSuggestions().provider === "brave" ? `&apikey=${config.get.searchSuggestions().apiKey}` : ""}`)
       .then((response) => response.json())
       .then((data) => setSuggestions(data?.suggestions || []))
       .catch((err) => console.log(err));

@@ -18,6 +18,8 @@ export default {
 		searchSuggestions: () => ({
 			enabled: localStorage.getItem("NT-searchSuggestionsEnabled") || "false",
 			apiKey: localStorage.getItem("NT-searchSuggestionsApiKey") || "",
+			provider:
+				localStorage.getItem("NT-searchSuggestionsProvider") || "duckduckgo",
 		}),
 		spotify: () => ({
 			enabled: localStorage.getItem("NT-spotifyEnabled") || "false",
@@ -72,6 +74,9 @@ export default {
 			},
 			apiKey: (value) => {
 				localStorage.setItem("NT-searchSuggestionsApiKey", value);
+			},
+			provider: (value) => {
+				localStorage.setItem("NT-searchSuggestionsProvider", value);
 			},
 		},
 		spotify: {
