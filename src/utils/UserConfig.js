@@ -15,6 +15,10 @@ export default {
 			lastUpdate: localStorage.getItem("NT-weatherLastUpdate") || "0",
 			cahce: localStorage.getItem("NT-weatherCahce") || "{}",
 		}),
+		searchSuggestions: () => ({
+			enabled: localStorage.getItem("NT-searchSuggestionsEnabled") || "false",
+			apiKey: localStorage.getItem("NT-searchSuggestionsApiKey") || "",
+		}),
 		spotify: () => ({
 			enabled: localStorage.getItem("NT-spotifyEnabled") || "false",
 			clientID: localStorage.getItem("NT-spotifyClientID") || "",
@@ -60,6 +64,14 @@ export default {
 			},
 			cahce: (value) => {
 				localStorage.setItem("NT-weatherCahce", value);
+			},
+		},
+		searchSuggestions: {
+			enabled: (value) => {
+				localStorage.setItem("NT-searchSuggestionsEnabled", value);
+			},
+			apiKey: (value) => {
+				localStorage.setItem("NT-searchSuggestionsApiKey", value);
 			},
 		},
 		spotify: {
