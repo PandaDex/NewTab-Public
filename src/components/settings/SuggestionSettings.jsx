@@ -20,7 +20,7 @@ const SuggestionSettings = () => {
                         Display search suggestions
                     </label>
                 </div>
-                <div>
+                {/* <div>
                     <h1 className='text-lg -ml-2 font-medium mb-2'>Config</h1>
                     <Input type={showApiKey ? "text" : "password"} label="API key" placeholder="Enter API key" value={braveApiKey}
                         onChange={(e) => {
@@ -36,7 +36,7 @@ const SuggestionSettings = () => {
                         <button type="button" onClick={() => setShowApiKey(!showApiKey)} className="text-xs underline underline-offset-2 text-neutral-500">{showApiKey ? "hide" : "show"} API key</button>
                     </span>
 
-                </div>
+                </div> */}
             </div>
         </div>
     )
