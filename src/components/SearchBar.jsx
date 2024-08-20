@@ -118,7 +118,7 @@ export function SearchBar() {
               </span>
             ))}
           {searchHistory.length > 0 &&
-            searchHistory.map((query, index) => (
+            searchHistory.reverse().map((query, index) => (
               <span
                 key={index}
                 className="w-full flex gap-1 bg-white bg-opacity-0 z-10 hover:bg-opacity-5 rounded-md py-1 px-1 items-center group cursor-pointer"
