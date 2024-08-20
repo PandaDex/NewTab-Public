@@ -111,7 +111,7 @@ export function SearchBar() {
                 <SparklesIcon size={19} />
                 <p
                   className="grow"
-                  onClick={() => searchWithEngine(suggestion.phrase)}
+                  onClick={() => { addToSearchHistory(suggestion.phrase); searchWithEngine(suggestion.phrase); }}
                 >
                   {suggestion.phrase}
                 </p>
