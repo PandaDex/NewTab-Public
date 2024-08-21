@@ -1,8 +1,5 @@
 export default {
 	get: {
-		general: () => ({
-			displayFavorite: localStorage.getItem("NT-displayFavorite") || "true",
-		}),
 		clock: () => ({
 			enabled: localStorage.getItem("NT-clockEnabled") || "true",
 			format: "24h",
@@ -15,11 +12,14 @@ export default {
 			lastUpdate: localStorage.getItem("NT-weatherLastUpdate") || "0",
 			cahce: localStorage.getItem("NT-weatherCahce") || "{}",
 		}),
-		searchSuggestions: () => ({
-			enabled: localStorage.getItem("NT-searchSuggestionsEnabled") || "false",
-			apiKey: localStorage.getItem("NT-searchSuggestionsApiKey") || "",
-			provider:
+		search: () => ({
+			suggestionsEnabled:
+				localStorage.getItem("NT-searchSuggestionsEnabled") || "false",
+			suggestionsApiKey:
+				localStorage.getItem("NT-searchSuggestionsApiKey") || "",
+			suggestionsProvider:
 				localStorage.getItem("NT-searchSuggestionsProvider") || "duckduckgo",
+			displayFavorite: localStorage.getItem("NT-displayFavorite") || "true",
 		}),
 		spotify: () => ({
 			enabled: localStorage.getItem("NT-spotifyEnabled") || "false",
@@ -32,11 +32,6 @@ export default {
 		}),
 	},
 	set: {
-		general: {
-			displayFavorite: (value) => {
-				localStorage.setItem("NT-displayFavorite", value);
-			},
-		},
 		clock: {
 			enabled: (value) => {
 				localStorage.setItem("NT-clockEnabled", value);
@@ -68,15 +63,18 @@ export default {
 				localStorage.setItem("NT-weatherCahce", value);
 			},
 		},
-		searchSuggestions: {
-			enabled: (value) => {
+		search: {
+			suggestionsEnabled: (value) => {
 				localStorage.setItem("NT-searchSuggestionsEnabled", value);
 			},
-			apiKey: (value) => {
+			suggestionsApiKey: (value) => {
 				localStorage.setItem("NT-searchSuggestionsApiKey", value);
 			},
-			provider: (value) => {
+			suggestionsProvider: (value) => {
 				localStorage.setItem("NT-searchSuggestionsProvider", value);
+			},
+			displayFavorite: (value) => {
+				localStorage.setItem("NT-displayFavorite", value);
 			},
 		},
 		spotify: {

@@ -4,17 +4,17 @@ import {
     CloudyIcon,
     Settings2Icon,
     SettingsIcon,
-    CaseUpperIcon
+    SearchIcon
 } from 'lucide-react'
 import React, { useState } from 'react'
-import { Button } from '@/components/ui/button';
 
-import {SettingsNavOption} from "@/components/settings/SettingsNavOption";
-import {GeneralSettings} from "@/components/settings/GeneralSettings";
-import {ClockSettings} from "@/components/settings/ClockSettings";
-import {SpotifySettings} from "@/components/settings/SpotifySettings";
-import {WeatherSettings} from "@/components/settings/WeatherSettings";
-import {SuggestionSettings} from "@/components/settings/SuggestionSettings.jsx";
+import { Button } from '@/components/ui/button';
+import { SettingsNavOption } from "@/components/settings/SettingsNavOption";
+import { GeneralSettings } from "@/components/settings/GeneralSettings";
+import { ClockSettings } from "@/components/settings/ClockSettings";
+import { SpotifySettings } from "@/components/settings/SpotifySettings";
+import { WeatherSettings } from "@/components/settings/WeatherSettings";
+import { SearchSettings } from "@/components/settings/SearchSettings.jsx";
 
 function Settings() {
     const [settingsModalOpen, setSettingsModalOpen] = useState(false);
@@ -46,8 +46,8 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                 return <SpotifySettings />
             case 'Clock':
                 return <ClockSettings />
-            case 'Suggestions':
-                return <SuggestionSettings />
+            case 'Search':
+                return <SearchSettings />
             default:
                 return "Not Found";
         }
@@ -68,8 +68,8 @@ function SettingsModal({ setModalState = () => { }, modalState = true }) {
                         <SettingsNavOption title='Spotify' iconCss='bg-neutral-700 text-white max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('Spotify')}>
                             <AudioLinesIcon size={26} />
                         </SettingsNavOption>
-                        <SettingsNavOption title='Suggestions' iconCss='bg-neutral-700 text-white max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('Suggestions')}>
-                            <CaseUpperIcon size={26} />
+                        <SettingsNavOption title='Search' iconCss='bg-neutral-700 text-white max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('Search')}>
+                            <SearchIcon size={26} />
                         </SettingsNavOption>
                         <SettingsNavOption title='Weather' iconCss='bg-neutral-700 text-white max-sm:hidden' currentActive={currentTab} onClick={() => setCurrentTab('Weather')}>
                             <CloudyIcon size={26} />

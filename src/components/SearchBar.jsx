@@ -38,15 +38,15 @@ export function SearchBar() {
     setIsURL(urlRegex.test(value));
     setQuery(value);
 
-    if (config.get.searchSuggestions().enabled === "true")
+    if (config.get.search().suggestionsEnabled === "true")
       getSuggestions(event.target.value);
   };
 
   const getSuggestions = (query) => {
     if (!query) return setSuggestions([]);
     if (query === " ") return setSuggestions([]);
-    if (config.get.searchSuggestions().provider === "brave" && config.get.searchSuggestions().apiKey === "") return setSuggestions([]);
-    fetch(`https://new-tab-api.vercel.app/suggest?query=${query}&provider=${config.get.searchSuggestions().provider}${config.get.searchSuggestions().provider === "brave" ? `&apikey=${config.get.searchSuggestions().apiKey}` : ""}`)
+    if (config.get.search().suggestionsProvider === "brave" && config.get.search().suggestionsApiKey === "") return setSuggestions([]);
+    fetch(`https://new-tab-api.vercel.app/suggest?query=${query}&provider=${config.get.search().suggestionsProvider}${config.get.search().suggestionsProvider === "brave" ? `&apikey=${config.get.search().suggestionsApiKey}` : ""}`)
       .then((response) => response.json())
       .then((data) => setSuggestions(data?.suggestions || []))
       .catch((err) => console.log(err));
@@ -184,7 +184,7 @@ export function SearchBar() {
         </span>
       )}
       <div className="w-full h-fit flex justify-center max-lg:justify-center items-center pt-5 flex-wrap gap-2">
-        {config.get.general().displayFavorite === "true" ? <>
+        {config.get.search().displayFavorite === "true" ? <>
           {savedSites.map((site) => (
             <SavedSite
               key={site.url}
