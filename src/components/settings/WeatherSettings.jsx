@@ -1,8 +1,8 @@
-﻿import React, {useState} from "react";
+﻿import React, { useState } from "react";
 import config from "@/utils/UserConfig";
-import {Switch} from "@/components/ui/switch";
-import {ToggleGroup, ToggleGroupItem} from "@/components/ui/toggle-group";
-import {Input} from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Input } from "@/components/ui/input";
 
 const WeatherSettings = () => {
     const [cityid, setCityId] = useState(config.get.weather().cityId);

@@ -184,8 +184,8 @@ export function SearchBar() {
         </span>
       )}
       <div className="w-full h-fit flex justify-center max-lg:justify-center items-center pt-5 flex-wrap gap-2">
-        {config.get.general().displayFavorite === "true" &&
-          savedSites.map((site) => (
+        {config.get.general().displayFavorite === "true" ? <>
+          {savedSites.map((site) => (
             <SavedSite
               key={site.url}
               title={site.title}
@@ -193,7 +193,8 @@ export function SearchBar() {
               icon={site.icon}
             />
           ))}
-        {savedSites.length < 8 && <SavedSitePlus setSites={setSavedSites} />}
+          {savedSites.length < 8 && <SavedSitePlus setSites={setSavedSites} />}
+        </> : null}
       </div>
     </div>
   );
