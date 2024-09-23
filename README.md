@@ -4,9 +4,7 @@ My goal was to make very minimalistic new tab page with aditional features that 
 You can request more integrations/features using GitHub Issues page
 
 ## TODO
- * Fix settings scaling so it will fit on mobile
- * Refactor this trash code
- * Rework some things 
+ * Rewrite from scratch 
  * More integrations 
 
 ## Screenshots 
