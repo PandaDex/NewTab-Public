@@ -1,3 +1,8 @@
+```
+⚠️ I'm currently working on a full project rewrite in nuxt.
+There was plenty of bad code to fix so it's easier to start from scratch.
+```
+
 # Minimalistic custom new tab page 
 I didnt liked my default new tab so i make this.  <br>
 My goal was to make very minimalistic new tab page with aditional features that i like. <br>
